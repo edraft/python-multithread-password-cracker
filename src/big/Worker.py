@@ -13,7 +13,7 @@ class Worker(threading.Thread):
         threading.Thread.__init__(self)
 
     def __check(self, word: str) -> bool:
-        if word == 'test':
+        if word == 'test1234':
             return True
 
         return False
