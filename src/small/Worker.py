@@ -22,17 +22,19 @@ class Worker(threading.Thread):
         try:
             print(f'Started {self.__name}')
             start = datetime.now()
-            for attempt in product(self.__charset, repeat=self.__maxlength):
+            for i in range(0, self.__maxlength):
                 if not self.__cracker.found:
+                    for attempt in product(self.__charset, repeat=i):
+                        if not self.__cracker.found:
 
-                    pw = ''.join(attempt)
-                    # print(f'{self.__name}: {pw}')
-                    if self.__check(pw):
-                        end = datetime.now()
-                        dif = end - start
-                        print(f'\n{self.__name}: found in {round(dif.total_seconds(), 2)} secs\n')
-                        self.__cracker.found = True
-                        self.__cracker.result = pw
+                            pw = ''.join(attempt)
+                            # print(f'{self.__name}: {pw}')
+                            if self.__check(pw):
+                                end = datetime.now()
+                                dif = end - start
+                                print(f'\n{self.__name}: found in {round(dif.total_seconds(), 2)} secs\n')
+                                self.__cracker.found = True
+                                self.__cracker.result = pw
         except Exception as e:
             print(e)
 

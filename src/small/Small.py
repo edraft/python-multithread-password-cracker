@@ -1,11 +1,11 @@
 from datetime import datetime
 
-from src.Cracker import Cracker
+from small.Cracker import Cracker
 
 if __name__ == '__main__':
     start = datetime.now()
     cracker = Cracker()
-    cracker.setup(4)
+    cracker.setup(12)
     res = cracker.run()
     end = datetime.now()
     dif = end - start
