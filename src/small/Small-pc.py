@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from big.Cracker import Cracker
+from Cracker import Cracker
 
 if __name__ == '__main__':
     start = datetime.now()

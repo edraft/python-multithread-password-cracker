@@ -1,6 +1,6 @@
 import string
 
-from big.Worker import Worker
+from Worker import Worker
 
 
 class Cracker:
